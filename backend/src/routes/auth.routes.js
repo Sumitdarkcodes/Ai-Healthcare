@@ -6,12 +6,33 @@ const {registerUser,loginUser,getProfile} = require("../controllers/auth.control
 
 const authMiddleware = require("../middleware/auth.middleware");
 
+const roleMiddleware = require ("../middleware/role.middleware");
+
 router.post("/register",registerUser);
 
 router.post("/login",loginUser);
 
-router.get("/profile",authMiddleware,getProfile);
+// router.get("/profile",authMiddleware,getProfile);
 
+router.get("/profile",authMiddleware,(req,res)=>
+    {
+     res.status(200).json
+     ({
+       message : "Profile accessed successfully",
+       user : req.user
+     });
+});
+
+router.get("/doctor-dashboard",authMiddleware,roleMiddleware (["doctor"]),
+           (req, res) =>
+    {
+     res.status(200).json
+     ({
+       message : "Welcome Doctor",
+       user : req.user
+     });
+    }
+);
 
 
 module.exports = router;

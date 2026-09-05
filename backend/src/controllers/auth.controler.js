@@ -5,7 +5,7 @@ const bcrypt = require ("bcryptjs");
 const jwt = require ("jsonwebtoken");
 
 
-const registerUser = async (req,res) =>{
+const registerUser = async (req,res) => {
 
 
     const { email, name, password } = req.body;
@@ -143,4 +143,39 @@ const loginUser = async (req,res) => {
 
 };
 
-module.exports = {registerUser, loginUser};
+const getProfile = async (req,res) => {
+
+    try 
+    {
+        const user = await User.findById ( req.user.userId)
+          
+        .select("-password");     // Don't include the password in the result.
+
+        if(!user) 
+        {
+            return res.status(404).json
+            ({
+               message : " User not Found" 
+            })
+        }
+          return res.status(200).json 
+          ({
+             message : " Profile fetched sucessfully",
+             user
+          });
+
+    } 
+
+    catch(error)
+    {
+        console.error(error);
+
+        return res.status(500).json
+        ({
+          message : " Internal server error "
+        });
+    }
+};
+
+
+module.exports = {registerUser, loginUser, getProfile};

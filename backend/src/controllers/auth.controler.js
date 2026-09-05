@@ -2,6 +2,8 @@ const User = require ("../models/user.model");
 
 const bcrypt = require ("bcryptjs");
 
+const jwt = require ("jsonwebtoken");
+
 
 const registerUser = async (req,res) =>{
 
@@ -55,4 +57,90 @@ const registerUser = async (req,res) =>{
 
 };
 
-module.exports = {registerUser};
+const loginUser = async (req,res) => {
+
+    try 
+    {
+     const { email,password } = req.body;
+
+     //    1. Validate input
+      
+     if (!email || !password)
+       {
+         return res.status(400).json
+         ({
+
+            message : "Email and Password are required"
+         }) ;
+        }
+
+     //   2. Find User
+     
+     const user = await User.findOne({email})
+
+     if(!user)
+     {
+        return res.status(401).json
+        ({
+            message : "Email and Password are invalid"
+        })
+     }
+     
+     //  3. Compare password
+
+     const isPasswordCorrect = await bcrypt.compare (
+        password,
+        user.password
+     );
+
+     if(!isPasswordCorrect)
+     {
+        return res.status(401).json
+        ({
+             message : "Invalid Password"
+        });
+     }
+
+     //  4. Generate JWT
+
+     const token = jwt.sign 
+     ({
+        userId : user._id,
+        email : user.email
+     },
+       process.env.JWT_SECRET,
+       {
+        expiresIn : "1d"
+       }
+      );
+
+     // 4.1  JWT(token) save in cookie
+     
+     res.cookie("token",token)
+
+     
+
+      //  5. Send response
+
+      return res.status(200).json
+      ({
+        message : "Login successful",
+        token
+      });
+
+    }
+
+    catch (error)
+    {
+     console.error(error);
+
+     return res.status(500).json
+     ({
+        message : "Internal server error"
+     });
+
+    }
+
+};
+
+module.exports = {registerUser, loginUser};

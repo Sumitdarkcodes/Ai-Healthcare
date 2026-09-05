@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema(
             lowercase : true
             },
     
-    // We will NOT store the user's actual password. Before saving it to MongoDB, we'll use bcryptjs to hash it.        
+    // We will NOT store the user's actual password. Before saving it to MongoDB,
+    //  we'll use bcryptjs to hash it.        
 
     password : {                     
            type : String,

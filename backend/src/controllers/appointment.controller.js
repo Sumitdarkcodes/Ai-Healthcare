@@ -148,4 +148,45 @@ const updateAppointmentStatus = async (req, res) => {
     }
 };
 
-module.exports = {createAppointment,getDoctorAppointments,updateAppointmentStatus};
+const cancelAppointment = async (req, res) => {
+    try {
+
+        const { appointmentId } = req.params;
+
+        const appointment = await Appointment.findOne({
+            _id: appointmentId,
+            patientId: req.user.userId
+        });
+
+        if (!appointment) {
+            return res.status(404).json({
+                message: "Appointment not found"
+            });
+        }
+
+        if (appointment.status !== "PENDING" && appointment.status !== "CONFIRMED") {
+            return res.status(400).json({
+                message: "This appointment cannot be cancelled"
+            });
+        }
+
+        appointment.status = "CANCELLED";
+
+        await appointment.save();
+
+        return res.status(200).json({
+            message: "Appointment cancelled successfully",
+            appointment
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
+module.exports = {createAppointment,getDoctorAppointments,updateAppointmentStatus,cancelAppointment};

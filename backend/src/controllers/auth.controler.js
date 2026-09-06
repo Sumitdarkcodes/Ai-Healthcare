@@ -57,6 +57,49 @@ const registerUser = async (req,res) => {
 
 };
 
+const registerAdmin = async (req, res) => {
+    try {
+        const { email, name, password } = req.body;
+
+        if (!email || !name || !password) {
+            return res.status(400).json({
+                message: "Email, Name and Password are required"
+            });
+        }
+
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.status(409).json({
+                message: "User with this email already exists"
+            });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const newAdmin = new User({
+            name,
+            email,
+            password: hashedPassword,
+            role: "admin"
+        });
+
+        await newAdmin.save();
+
+        return res.status(201).json({
+            message: "Admin registered successfully",
+            userId: newAdmin._id
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
 const loginUser = async (req,res) => {
 
     try 
@@ -178,4 +221,4 @@ const getProfile = async (req,res) => {
 };
 
 
-module.exports = {registerUser, loginUser, getProfile};
+module.exports = {registerUser, loginUser, getProfile,registerAdmin};

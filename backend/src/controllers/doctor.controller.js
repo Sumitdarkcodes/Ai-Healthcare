@@ -123,4 +123,55 @@ console.log("TYPE:", typeof req.body?.isAvailable);
     }
 };
 
-module.exports = {createDoctorProfile,getDoctorProfile,updateDoctorAvailability};
+const getAllDoctors = async (req, res) => {
+    try {
+
+        const doctors = await Doctor.find({
+            isAvailable: true
+        }).populate("userId", "name email");
+
+        return res.status(200).json({
+            message: "Doctors fetched successfully",
+            doctors
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
+
+const getDoctorById = async (req, res) => {
+    try {
+
+        const { doctorId } = req.params;
+
+        const doctor = await Doctor.findById(doctorId)
+            .populate("userId", "name email");
+
+        if (!doctor) {
+            return res.status(404).json({
+                message: "Doctor not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Doctor details fetched successfully",
+            doctor
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+module.exports = {createDoctorProfile,getDoctorProfile,updateDoctorAvailability,getAllDoctors,getDoctorById}; 

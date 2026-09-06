@@ -12,6 +12,8 @@ const medicalRecordRoutes = require("./routes/medicalrecord.routes");
 
 const adminRoutes = require ("./routes/admin.routes")
 
+const aiRoutes = require("./routes/ai.routes");
+
 
 const app = express ();
 
@@ -28,6 +30,8 @@ app.use("/api/patients", patientRoutes);
 app.use("/api/medical-records", medicalRecordRoutes);
 
 app.use("/api/appointments", appointmentRoutes);
+
+app.use("/api/ai", aiRoutes);
 
 
 module.exports = app;

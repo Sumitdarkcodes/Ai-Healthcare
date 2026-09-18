@@ -1,0 +1,175 @@
+
+/* =========================
+   PATIENT DASHBOARD
+========================= */
+
+.dashboardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 45px;
+}
+
+.dashboardHeader h1 {
+    margin: 5px 0 8px;
+}
+
+.dashboardHeader > div > p:last-child {
+    margin: 0;
+    color: #647168;
+}
+
+.dashboardSection {
+    margin-bottom: 45px;
+}
+
+.dashboardSection h2 {
+    margin-bottom: 20px;
+}
+
+.dashboardStats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.statCard {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border: 1px solid #e4e9e5;
+    border-radius: 18px;
+
+    transition: 0.2s;
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(24, 53, 37, 0.08);
+}
+
+.statIcon {
+    display: inline-grid;
+    place-items: center;
+
+    width: 45px;
+    height: 45px;
+
+    background: #e5f4ed;
+    color: #16805a;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+
+    margin-bottom: 18px;
+}
+
+.statCard h3 {
+    margin: 0 0 10px;
+
+    color: #647168;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.statCard p {
+    margin: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+
+    color: #16805a;
+}
+
+
+/* QUICK ACTIONS */
+
+.quickActions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.actionCard {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border: 1px solid #e4e9e5;
+    border-radius: 18px;
+
+    transition: 0.2s;
+}
+
+.actionCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(24, 53, 37, 0.08);
+}
+
+.actionCard > span {
+    font-size: 28px;
+}
+
+.actionCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    margin: 18px 0 8px;
+
+    font-size: 18px;
+}
+
+.actionCard p {
+    margin: 0;
+
+    color: #647168;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* DASHBOARD RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .dashboardStats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quickActions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .dashboardHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboardStats,
+    .quickActions {
+        grid-template-columns: 1fr;
+    }
+}
+
+.actionCard {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border: 1px solid #e4e9e5;
+    border-radius: 18px;
+
+    transition: 0.2s;
+
+    text-decoration: none;
+    color: inherit;
+}

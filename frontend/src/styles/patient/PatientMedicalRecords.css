@@ -1,0 +1,184 @@
+
+/* =========================
+   MEDICAL RECORDS
+========================= */
+
+.recordsSection {
+    margin-top: 10px;
+}
+
+.recordsHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.recordsHeader h2 {
+    margin: 0 0 8px;
+}
+
+.recordsHeader p {
+    margin: 0;
+    color: #647168;
+}
+
+.recordCount {
+    padding: 8px 12px;
+
+    background: #e5f4ed;
+    color: #16805a;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recordsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.recordCard {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border: 1px solid #e4e9e5;
+    border-radius: 18px;
+
+    transition: 0.2s;
+}
+
+.recordCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(24, 53, 37, 0.08);
+}
+
+.recordCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf0ed;
+}
+
+.recordIcon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    background: #e5f4ed;
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+.recordCardHeader h3 {
+    margin: 0 0 5px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.recordCardHeader span {
+    color: #647168;
+    font-size: 13px;
+}
+
+.recordInfo {
+    padding: 20px 0;
+
+    border-bottom: 1px solid #edf0ed;
+}
+
+.recordInfo p {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin: 0 0 13px;
+
+    font-size: 13px;
+}
+
+.recordInfo p:last-child {
+    margin-bottom: 0;
+}
+
+.recordInfo strong {
+    color: #647168;
+    font-weight: 500;
+}
+
+.recordInfo span {
+    color: #17211b;
+    text-align: right;
+}
+
+.recordNotes {
+    padding: 18px 0;
+}
+
+.recordNotes strong {
+    font-size: 13px;
+    color: #415048;
+}
+
+.recordNotes p {
+    margin: 8px 0 0;
+
+    color: #647168;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.viewRecordButton {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #dce3de;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #415048;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.viewRecordButton:hover {
+    background: #f5f7f3;
+}
+
+
+@media (max-width: 1000px) {
+
+    .recordsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .recordsHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .recordsGrid {
+        grid-template-columns: 1fr;
+    }
+}

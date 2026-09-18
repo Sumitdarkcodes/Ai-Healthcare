@@ -1,0 +1,252 @@
+
+/* =========================
+   DOCTOR APPOINTMENTS
+========================= */
+
+.doctorAppointmentsSection {
+    margin-top: 10px;
+}
+
+.appointmentSummary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.appointmentSummary > div {
+    background: #ffffff;
+    padding: 22px 25px;
+    border: 1px solid #e4e9e5;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.appointmentSummary span {
+    color: #647168;
+    font-size: 13px;
+}
+
+.appointmentSummary strong {
+    color: #16805a;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+}
+
+.doctorAppointmentsCard {
+    background: #ffffff;
+    border: 1px solid #e4e9e5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.doctorAppointmentsHeader {
+    padding: 25px 30px;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.doctorAppointmentsHeader h2 {
+    margin: 0 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.doctorAppointmentsHeader p {
+    margin: 0;
+    color: #647168;
+    font-size: 14px;
+}
+
+.appointmentTableWrapper {
+    width: 350%;
+    overflow-x: auto;
+}
+
+.doctorAppointmentTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+.doctorAppointmentTable th {
+    padding: 15px 20px;
+    background: #f5f7f3;
+
+    color: #647168;
+
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+.doctorAppointmentTable td {
+    padding: 18px 20px;
+    border-top: 1px solid #edf0ed;
+    vertical-align: middle;
+}
+
+.patientCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.patientAvatar {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    background: #e5f4ed;
+    color: #16805a;
+
+    border-radius: 50%;
+
+    font-weight: 700;
+}
+
+.patientCell div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.patientCell strong {
+    color: #17211b;
+    font-size: 14px;
+}
+
+.patientCell span {
+    color: #647168;
+    font-size: 12px;
+}
+
+.dateTimeCell {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dateTimeCell strong {
+    color: #17211b;
+    font-size: 13px;
+}
+
+.dateTimeCell span {
+    color: #647168;
+    font-size: 12px;
+}
+
+.reasonCell {
+    color: #415048;
+    font-size: 13px;
+}
+
+.appointmentStatusBadge {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.appointmentStatusBadge.pending {
+    background: #fff4db;
+    color: #b7791f;
+}
+
+.appointmentStatusBadge.confirmed {
+    background: #e5f4ed;
+    color: #16805a;
+}
+
+.appointmentStatusBadge.rejected {
+    background: #fde9e7;
+    color: #c0392b;
+}
+
+.appointmentActions {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.appointmentActions button {
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.viewAppointmentButton {
+    border: 1px solid #dce3de;
+    background: #ffffff;
+    color: #415048;
+}
+
+.viewAppointmentButton:hover {
+    background: #f5f7f3;
+}
+
+.confirmAppointmentButton {
+    border: none;
+    background: #16805a;
+    color: #ffffff;
+}
+
+.confirmAppointmentButton:hover {
+    background: #126b4b;
+}
+
+.rejectAppointmentButton {
+    border: 1px solid #e7c4c0;
+    background: #ffffff;
+    color: #c0392b;
+}
+
+.rejectAppointmentButton:hover {
+    background: #fde9e7;
+}
+
+.doctorEmptyAppointments {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.doctorEmptyAppointments span {
+    font-size: 40px;
+}
+
+.doctorEmptyAppointments h3 {
+    margin: 15px 0 8px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.doctorEmptyAppointments p {
+    margin: 0;
+    color: #647168;
+}
+
+
+@media (max-width: 700px) {
+
+    .appointmentSummary {
+        grid-template-columns: 1fr;
+    }
+
+}
+

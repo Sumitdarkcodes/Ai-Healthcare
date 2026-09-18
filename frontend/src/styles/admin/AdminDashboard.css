@@ -1,0 +1,233 @@
+
+/* =========================
+   ADMIN DASHBOARD
+========================= */
+
+.adminDashboardStats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+/* =========================
+   ADMIN STAT CARD
+========================= */
+
+.adminStatCard {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    min-height: 135px;
+
+    padding: 22px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.adminStatCard:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--border-dark);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   ADMIN STAT ICON
+========================= */
+
+.adminStatIcon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+    color: var(--primary);
+
+    border-radius: 13px;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   ADMIN STAT CONTENT
+========================= */
+
+.adminStatContent h3 {
+    margin-bottom: 6px;
+
+    color: var(--text-secondary);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.adminStatContent p {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* =========================
+   ADMIN LOADING
+========================= */
+
+.adminDashboardLoading {
+    min-height: 135px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.adminDashboardLoading p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   ADMIN FEATURES
+========================= */
+
+.adminFeatureGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.adminFeatureCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 20px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.adminFeatureCard:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   ADMIN FEATURE ICON
+========================= */
+
+.adminFeatureIcon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    border-radius: 11px;
+
+    font-size: 19px;
+}
+
+
+/* =========================
+   ADMIN FEATURE CONTENT
+========================= */
+
+.adminFeatureCard h3 {
+    margin-bottom: 6px;
+
+    font-size: 16px;
+}
+
+.adminFeatureCard p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ADMIN DASHBOARD RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .adminDashboardStats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .adminFeatureGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .adminDashboardStats {
+        grid-template-columns: 1fr;
+    }
+
+    .adminStatCard {
+        min-height: 115px;
+        padding: 18px;
+    }
+
+    .adminStatContent p {
+        font-size: 27px;
+    }
+
+    .adminFeatureCard {
+        padding: 18px;
+    }
+}

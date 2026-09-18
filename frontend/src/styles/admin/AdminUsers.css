@@ -1,0 +1,226 @@
+
+/* ================================
+   ADMIN USERS
+================================ */
+
+.adminUsersSection {
+    margin-top: 10px;
+}
+
+.usersSummary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.usersSummary > div {
+    background: #ffffff;
+    padding: 22px 25px;
+    border: 1px solid #e4e9e5;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.usersSummary span {
+    color: #647168;
+    font-size: 13px;
+}
+
+.usersSummary strong {
+    color: #16805a;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+}
+
+.adminUsersCard {
+    background: #ffffff;
+    border: 1px solid #e4e9e5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.adminUsersHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 30px;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.adminUsersHeader h2 {
+    margin: 0 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.adminUsersHeader p {
+    margin: 0;
+    color: #647168;
+    font-size: 14px;
+}
+
+.userCount {
+    padding: 7px 10px;
+    background: #e5f4ed;
+    color: #16805a;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.usersTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.adminUsersTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.adminUsersTable th {
+    padding: 15px 20px;
+    background: #f5f7f3;
+    color: #647168;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.adminUsersTable td {
+    padding: 18px 20px;
+    border-top: 1px solid #edf0ed;
+    vertical-align: middle;
+}
+
+.adminUserCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.adminUserAvatar {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: #e5f4ed;
+    color: #16805a;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.adminUserCell strong {
+    color: #17211b;
+    font-size: 14px;
+}
+
+.userEmail {
+    color: #647168;
+    font-size: 13px;
+}
+
+.userRoleBadge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.userRoleBadge.patient {
+    background: #e5f4ed;
+    color: #16805a;
+}
+
+.userRoleBadge.doctor {
+    background: #e8f0f7;
+    color: #39739d;
+}
+
+.userRoleBadge.admin {
+    background: #f1eafa;
+    color: #7652a8;
+}
+
+.userActions {
+    display: flex;
+    gap: 8px;
+}
+
+.userActions button {
+    padding: 7px 11px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.viewUserButton {
+    border: 1px solid #dce3de;
+    background: #ffffff;
+    color: #415048;
+}
+
+.viewUserButton:hover {
+    background: #f5f7f3;
+}
+
+.deleteUserButton {
+    border: 1px solid #e7c4c0;
+    background: #ffffff;
+    color: #c0392b;
+}
+
+.deleteUserButton:hover {
+    background: #fde9e7;
+}
+
+.emptyUsers {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.emptyUsers span {
+    font-size: 40px;
+}
+
+.emptyUsers h3 {
+    margin: 15px 0 8px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.emptyUsers p {
+    margin: 0;
+    color: #647168;
+}
+
+@media (max-width: 800px) {
+
+    .usersSummary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .usersSummary {
+        grid-template-columns: 1fr;
+    }
+
+    .adminUsersHeader {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+}
+

@@ -1,0 +1,875 @@
+/* =========================
+   GOOGLE FONTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+
+    /* Fonts */
+
+    font-family: "DM Sans", sans-serif;
+
+
+    /* Main Colors */
+
+    --primary: #2f6f4e;
+    --primary-dark: #24583e;
+    --primary-light: #e8f3ec;
+
+
+    /* Backgrounds */
+
+    --background: #f5f7f3;
+    --surface: #ffffff;
+    --surface-soft: #f8faf7;
+
+
+    /* Text */
+
+    --text-primary: #17211b;
+    --text-secondary: #66736b;
+    --text-muted: #89958e;
+
+
+    /* Borders */
+
+    --border: #e1e7e2;
+    --border-dark: #d2dbd5;
+
+
+    /* Status */
+
+    --success: #2e7d52;
+    --success-light: #e8f5ed;
+
+    --warning: #b7791f;
+    --warning-light: #fff7e6;
+
+    --danger: #c94a4a;
+    --danger-light: #fdecec;
+
+    --info: #3978a8;
+    --info-light: #eaf4fb;
+
+
+    /* Shadows */
+
+    --shadow-sm:
+        0 2px 8px rgba(23, 33, 27, 0.05);
+
+    --shadow-md:
+        0 8px 24px rgba(23, 33, 27, 0.08);
+
+    --shadow-lg:
+        0 16px 40px rgba(23, 33, 27, 0.10);
+
+
+    /* Border Radius */
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+
+    /* Transitions */
+
+    --transition:
+        0.2s ease;
+
+
+    color: var(--text-primary);
+    background: var(--background);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: var(--background);
+
+    color: var(--text-primary);
+
+    font-family: "DM Sans", sans-serif;
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+button,
+input,
+textarea,
+select {
+
+    font: inherit;
+}
+
+
+button {
+
+    cursor: pointer;
+}
+
+
+button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.6;
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    margin-top: 0;
+
+    color: var(--text-primary);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    line-height: 1.2;
+}
+
+
+h1 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+
+h2 {
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+h3 {
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+p {
+
+    color: var(--text-secondary);
+
+    margin-top: 0;
+}
+
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    padding: 12px 14px;
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+    color: var(--text-muted);
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(47, 111, 78, 0.10);
+}
+
+
+textarea {
+
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+
+    border: none;
+
+    border-radius: var(--radius-md);
+
+    padding: 10px 16px;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+
+button:hover:not(:disabled) {
+
+    transform: translateY(-1px);
+}
+
+
+button:active:not(:disabled) {
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TABLES
+========================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: var(--surface);
+}
+
+
+th {
+
+    text-align: left;
+
+    padding: 14px 16px;
+
+    background: var(--surface-soft);
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+td {
+
+    padding: 15px 16px;
+
+    color: var(--text-primary);
+
+    border-bottom: 1px solid var(--border);
+
+    vertical-align: middle;
+}
+
+
+tbody tr {
+
+    transition: background var(--transition);
+}
+
+
+tbody tr:hover {
+
+    background: var(--surface-soft);
+}
+
+
+/* =========================
+   COMMON CARD
+========================= */
+
+.card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================
+   DASHBOARD HEADER
+========================= */
+
+.dashboardHeader {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 30px;
+}
+
+
+.dashboardHeader h1 {
+
+    margin-bottom: 8px;
+}
+
+
+.dashboardHeader p {
+
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   EYEBROW
+========================= */
+
+.eyebrow {
+
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: var(--background);
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #c7d0ca;
+
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #aebbb2;
+}
+
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+::selection {
+
+    background: var(--primary-light);
+
+    color: var(--primary-dark);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 27px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .dashboardHeader {
+
+        flex-direction: column;
+
+        gap: 16px;
+
+    }
+
+    table {
+
+        min-width: 700px;
+    }
+
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border-right: 1px solid var(--border);
+
+    padding: 24px 16px;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   SIDEBAR LOGO
+========================= */
+
+.sidebarLogo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 4px 10px 28px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.sidebarLogoIcon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+
+.sidebarLogo h2 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+
+.sidebarLogo span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+/* =========================
+   SIDEBAR NAV
+========================= */
+
+.sidebarNav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-top: 24px;
+}
+
+
+.sidebarLink {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    border-radius: 9px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+
+.sidebarLink:hover {
+
+    background: var(--surface-soft);
+
+    color: var(--primary);
+
+    transform: translateX(2px);
+}
+
+
+.sidebarLink.active {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-weight: 600;
+}
+
+
+.sidebarLinkIcon {
+
+    width: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   SIDEBAR BOTTOM
+========================= */
+
+.sidebarBottom {
+
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.sidebarHelp {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    background: var(--surface-soft);
+
+    border-radius: 10px;
+}
+
+
+.sidebarHelpIcon {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+
+.sidebarHelp strong {
+
+    display: block;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+}
+
+
+.sidebarHelp p {
+
+    margin: 2px 0 0;
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================
+   ADMIN SIDEBAR
+========================= */
+
+.adminSidebar .sidebarLink.active {
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+}
+
+
+.sidebarAdminInfo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px;
+}
+
+
+.sidebarAdminAvatar {
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.sidebarAdminInfo strong {
+
+    display: block;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+}
+
+
+.sidebarAdminInfo p {
+
+    margin: 2px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    padding: 35px 40px;
+}
+
+
+/* =========================
+   MOBILE SIDEBAR
+========================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+
+        width: 210px;
+
+    }
+
+    main {
+
+        margin-left: 210px;
+
+        padding: 25px 20px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        min-height: auto;
+
+    }
+
+    .sidebarBottom {
+
+        display: none;
+
+    }
+
+    main {
+
+        margin-left: 0;
+
+        padding: 25px 16px;
+
+    }
+
+}

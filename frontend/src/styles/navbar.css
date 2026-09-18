@@ -1,0 +1,38 @@
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    height: 72px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e9e4;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav h2 {
+    margin: 0;
+    margin-right: auto;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    color: #142019;
+}
+
+nav a {
+    color: #415048;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #16805a;
+}
+

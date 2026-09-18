@@ -220,5 +220,14 @@ const getProfile = async (req,res) => {
     }
 };
 
+const logoutUser = (req, res) => {
 
-module.exports = {registerUser, loginUser, getProfile,registerAdmin};
+    res.clearCookie("token");
+
+    return res.status(200).json({
+        message: "Logout successful"
+    });
+};
+
+
+module.exports = {registerUser, loginUser, getProfile,registerAdmin,logoutUser};

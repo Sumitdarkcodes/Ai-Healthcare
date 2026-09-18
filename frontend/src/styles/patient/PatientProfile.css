@@ -1,0 +1,213 @@
+
+/* =========================
+   PATIENT PROFILE
+========================= */
+
+.profileCard,
+.profileEditCard {
+    max-width: 800px;
+
+    background: #ffffff;
+
+    padding: 30px;
+
+    border: 1px solid #e4e9e5;
+    border-radius: 20px;
+}
+
+.profileTop {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #edf0ed;
+}
+
+.profileAvatar {
+    width: 70px;
+    height: 70px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #e5f4ed;
+    color: #16805a;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.profileTop h2 {
+    margin: 0 0 5px;
+
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.profileTop p {
+    margin: 0;
+    color: #647168;
+}
+
+.profileDetails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.profileItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    padding: 15px;
+
+    background: #f5f7f3;
+    border-radius: 10px;
+}
+
+.profileItem span {
+    color: #647168;
+    font-size: 12px;
+}
+
+.profileItem strong {
+    color: #17211b;
+    font-size: 14px;
+}
+
+.editProfileButton {
+    margin-top: 25px;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #16805a;
+    color: #ffffff;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.editProfileButton:hover {
+    background: #126b4b;
+}
+
+
+/* EDIT FORM */
+
+.profileEditHeader {
+    margin-bottom: 25px;
+}
+
+.profileEditHeader h2 {
+    margin: 0 0 7px;
+
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.profileEditHeader p {
+    margin: 0;
+    color: #647168;
+}
+
+.profileForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.profileFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profileFormGroup label {
+    color: #415048;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.profileFormGroup input,
+.profileFormGroup select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dce3de;
+    border-radius: 10px;
+
+    outline: none;
+    background: #ffffff;
+}
+
+.profileFormGroup input:focus,
+.profileFormGroup select:focus {
+    border-color: #16805a;
+
+    box-shadow: 0 0 0 3px rgba(22, 128, 90, 0.1);
+}
+
+.profileActions {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.saveProfileButton,
+.cancelProfileButton {
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.saveProfileButton {
+    border: none;
+
+    background: #16805a;
+    color: #ffffff;
+}
+
+.saveProfileButton:hover {
+    background: #126b4b;
+}
+
+.cancelProfileButton {
+    border: 1px solid #dce3de;
+
+    background: #ffffff;
+    color: #415048;
+}
+
+.cancelProfileButton:hover {
+    background: #f5f7f3;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .profileDetails,
+    .profileForm {
+        grid-template-columns: 1fr;
+    }
+
+    .profileCard,
+    .profileEditCard {
+        padding: 22px;
+    }
+}
+

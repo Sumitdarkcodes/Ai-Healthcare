@@ -14,8 +14,11 @@ const adminRoutes = require ("./routes/admin.routes")
 
 const aiRoutes = require("./routes/ai.routes");
 
+const cors = require("cors");
 
 const app = express ();
+
+app.use(cors({origin: "http://localhost:5173",credentials: true}));
 
 app.use(express.json());
 
@@ -32,6 +35,8 @@ app.use("/api/medical-records", medicalRecordRoutes);
 app.use("/api/appointments", appointmentRoutes);
 
 app.use("/api/ai", aiRoutes);
+
+
 
 
 module.exports = app;

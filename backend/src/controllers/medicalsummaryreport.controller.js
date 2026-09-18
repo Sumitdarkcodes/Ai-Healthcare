@@ -1,6 +1,6 @@
 const MedicalRecord = require("../models/medicalrecord.model");
 
-const {generateMedicalSummary} = require("../services/medicialsummaryreport.service");
+const {generateMedicalSummary} = require("../services/medicalsummaryreport.service");
 
 const summarizeMedicalRecord = async (req, res) => {
     try {

@@ -1,0 +1,546 @@
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.hero {
+    min-height: calc(100vh - 40px);
+
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+
+    gap: 70px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 70px 40px 60px;
+}
+
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero > div:first-child {
+    max-width: 650px;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero .lead {
+    max-width: 590px;
+
+    margin-bottom: 30px;
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   GET STARTED BUTTON
+========================= */
+
+.primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 23px;
+
+    background: var(--primary);
+    color: #ffffff;
+
+    border-radius: var(--radius-md);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 16px rgba(47, 111, 78, 0.18);
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.primary:hover {
+    background: var(--primary-dark);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px rgba(47, 111, 78, 0.24);
+}
+
+
+/* =========================
+   HERO CARD
+========================= */
+
+.heroCard {
+    position: relative;
+
+    padding: 38px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow-lg);
+
+    overflow: hidden;
+}
+
+
+/* Decorative background */
+
+.heroCard::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -80px;
+    right: -70px;
+
+    background: var(--primary-light);
+
+    border-radius: 50%;
+
+    opacity: 0.8;
+}
+
+.heroCard::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    bottom: -60px;
+    left: -50px;
+
+    background: #f0f6f1;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   PULSE ICON
+========================= */
+
+.pulse {
+    position: relative;
+    z-index: 1;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    background: var(--primary-light);
+    color: var(--primary);
+
+    border-radius: 16px;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 0 0 8px rgba(47, 111, 78, 0.05);
+}
+
+
+/* =========================
+   HERO CARD CONTENT
+========================= */
+
+.heroCard h2 {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 9px;
+
+    font-size: 25px;
+}
+
+.heroCard > p {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 28px;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HERO FEATURES
+========================= */
+
+.heroFeatures {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+.heroFeatures > div {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 10px 0;
+}
+
+.heroFeatures span {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: var(--surface-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.heroFeatures p {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   FEATURES SECTION
+========================= */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 20px 40px 80px;
+}
+
+
+/* =========================
+   FEATURE CARD
+========================= */
+
+.featureCard {
+    padding: 28px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.featureCard:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--primary);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   FEATURE ICON
+========================= */
+
+.featureIcon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: var(--primary-light);
+
+    border-radius: 12px;
+
+    font-size: 21px;
+}
+
+
+/* =========================
+   FEATURE CONTENT
+========================= */
+
+.featureCard h3 {
+    margin-bottom: 8px;
+
+    font-size: 18px;
+}
+
+.featureCard p {
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 50px;
+
+    max-width: 1200px;
+
+    margin: 20px auto 0;
+
+    padding: 45px 40px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================
+   FOOTER BRAND
+========================= */
+
+.footerBrand h2 {
+    margin-bottom: 9px;
+
+    font-size: 21px;
+}
+
+.footerBrand p {
+    max-width: 300px;
+
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER LINKS
+========================= */
+
+.footerLinks {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.footerLinks h3 {
+    margin-bottom: 7px;
+
+    color: var(--text-primary);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.footerLinks a {
+    width: fit-content;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+}
+
+.footerLinks a:hover {
+    color: var(--primary);
+
+    transform: translateX(2px);
+}
+
+
+/* =========================
+   HOME RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding-top: 55px;
+    }
+
+    .hero > div:first-child {
+        max-width: 700px;
+    }
+
+    .heroCard {
+        max-width: 650px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footerBrand {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: auto;
+
+        padding: 45px 20px 50px;
+
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero .lead {
+        font-size: 15px;
+    }
+
+    .heroCard {
+        padding: 28px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+
+        padding: 10px 20px 55px;
+    }
+
+    .featureCard {
+        padding: 23px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 35px 20px;
+    }
+
+    .footerBrand {
+        grid-column: auto;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .heroCard {
+        padding: 23px;
+    }
+
+    .features {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+

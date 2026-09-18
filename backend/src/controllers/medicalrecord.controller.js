@@ -85,14 +85,24 @@ const createMedicalRecord = async (req, res) => {
     }
 };
 
-
 const getPatientMedicalRecords = async (req, res) => {
     try {
+
         const medicalRecords = await MedicalRecord.find({
             patientId: req.user.userId
         })
-        .populate("doctorId", "specialization qualification experience consultationFee")
-        .populate("appointmentId", "appointmentDate reason status");
+        .populate({
+            path: "doctorId",
+            select: "specialization qualification experience consultationFee userId",
+            populate: {
+                path: "userId",
+                select: "name email"
+            }
+        })
+        .populate(
+            "appointmentId",
+            "appointmentDate reason status"
+        );
 
         return res.status(200).json({
             message: "Medical records fetched successfully",
@@ -100,6 +110,7 @@ const getPatientMedicalRecords = async (req, res) => {
         });
 
     } catch (error) {
+
         console.error(error);
 
         return res.status(500).json({
@@ -108,4 +119,38 @@ const getPatientMedicalRecords = async (req, res) => {
     }
 };
 
-module.exports = {createMedicalRecord,getPatientMedicalRecords};
+const getDoctorMedicalRecords = async (req, res) => {
+    try {
+
+        const doctor = await Doctor.findOne({
+            userId: req.user.userId
+        });
+
+        if (!doctor) {
+            return res.status(404).json({
+                message: "Doctor profile not found"
+            });
+        }
+
+        const medicalRecords = await MedicalRecord.find({
+            doctorId: doctor._id
+        })
+        .populate("patientId", "name email")
+        .populate("appointmentId", "appointmentDate reason status");
+
+        return res.status(200).json({
+            message: "Doctor medical records fetched successfully",
+            medicalRecords
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
+module.exports = {createMedicalRecord,getPatientMedicalRecords,getDoctorMedicalRecords};

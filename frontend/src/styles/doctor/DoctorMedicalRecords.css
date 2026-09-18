@@ -1,0 +1,267 @@
+
+/* ================================
+   DOCTOR MEDICAL RECORDS
+================================ */
+
+.medicalRecordsLayout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.createRecordCard,
+.doctorRecordsCard {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #e4e9e5;
+    border-radius: 20px;
+}
+
+.medicalRecordsHeader,
+.doctorRecordsHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.medicalRecordsIcon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: #e5f4ed;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.medicalRecordsHeader h2,
+.doctorRecordsHeader h2 {
+    margin: 0 0 6px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.medicalRecordsHeader p,
+.doctorRecordsHeader p {
+    margin: 0;
+    color: #647168;
+    font-size: 13px;
+}
+
+.medicalRecordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.medicalRecordFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.medicalRecordFormGroup label {
+    color: #415048;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.medicalRecordFormGroup input,
+.medicalRecordFormGroup textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dce3de;
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: #17211b;
+    font-family: inherit;
+}
+
+.medicalRecordFormGroup textarea {
+    resize: vertical;
+}
+
+.medicalRecordFormGroup input:focus,
+.medicalRecordFormGroup textarea:focus {
+    border-color: #16805a;
+    box-shadow: 0 0 0 3px rgba(22, 128, 90, 0.1);
+}
+
+.createRecordButton {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #16805a;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.createRecordButton:hover {
+    background: #126b4b;
+}
+
+.doctorRecordsHeader {
+    justify-content: space-between;
+}
+
+.doctorRecordCount {
+    padding: 7px 10px;
+    background: #e5f4ed;
+    color: #16805a;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.doctorRecordsList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.doctorRecordItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px;
+    background: #f5f7f3;
+    border-radius: 12px;
+}
+
+.doctorRecordMain {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+}
+
+.doctorRecordIcon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.doctorRecordInfo {
+    min-width: 0;
+}
+
+.doctorRecordInfo h3 {
+    margin: 0 0 5px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+}
+
+.recordPatient {
+    margin: 0 0 4px;
+    color: #415048;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recordDate {
+    margin: 0 0 8px;
+    color: #647168;
+    font-size: 12px;
+}
+
+.recordNotesPreview {
+    margin: 0;
+    color: #647168;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.doctorRecordActions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.doctorRecordActions button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.viewDoctorRecordButton {
+    border: 1px solid #dce3de;
+    background: #ffffff;
+    color: #415048;
+}
+
+.viewDoctorRecordButton:hover {
+    background: #ffffff;
+    border-color: #16805a;
+    color: #16805a;
+}
+
+.deleteDoctorRecordButton {
+    border: 1px solid #e7c4c0;
+    background: #ffffff;
+    color: #c0392b;
+}
+
+.deleteDoctorRecordButton:hover {
+    background: #fde9e7;
+}
+
+.doctorEmptyRecords {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.doctorEmptyRecords span {
+    font-size: 38px;
+}
+
+.doctorEmptyRecords h3 {
+    margin: 15px 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.doctorEmptyRecords p {
+    margin: 0;
+    color: #647168;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .medicalRecordsLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .createRecordCard,
+    .doctorRecordsCard {
+        padding: 22px;
+    }
+
+    .doctorRecordItem {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .doctorRecordActions {
+        width: 100%;
+    }
+
+    .doctorRecordActions button {
+        flex: 1;
+    }
+}

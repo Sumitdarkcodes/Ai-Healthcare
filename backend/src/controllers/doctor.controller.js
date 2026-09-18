@@ -60,7 +60,8 @@ const getDoctorProfile = async (req, res) => {
     try {
         const doctor = await Doctor.findOne({
             userId: req.user.userId
-        });
+
+        }).populate("userId", "name email");;
 
         if (!doctor) {
             return res.status(404).json({
@@ -174,4 +175,89 @@ const getDoctorById = async (req, res) => {
         });
     }
 };
-module.exports = {createDoctorProfile,getDoctorProfile,updateDoctorAvailability,getAllDoctors,getDoctorById}; 
+
+const updateDoctorProfile = async (req, res) => {
+    try {
+
+        const {
+            name,
+            email,
+            specialization,
+            qualification,
+            experience,
+            consultationFee,
+            about
+        } = req.body;
+
+        const doctor = await Doctor.findOne({
+            userId: req.user.userId
+        });
+
+        if (!doctor) {
+            return res.status(404).json({
+                message: "Doctor profile not found"
+            });
+        }
+
+        const User = require("../models/user.model");
+
+        const user = await User.findById(req.user.userId);
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        if (name !== undefined) {
+            user.name = name;
+        }
+
+        if (email !== undefined) {
+            user.email = email;
+        }
+
+        if (specialization !== undefined) {
+            doctor.specialization = specialization;
+        }
+
+        if (qualification !== undefined) {
+            doctor.qualification = qualification;
+        }
+
+        if (experience !== undefined) {
+            doctor.experience = experience;
+        }
+
+        if (consultationFee !== undefined) {
+            doctor.consultationFee = consultationFee;
+        }
+
+        if (about !== undefined) {
+            doctor.about = about;
+        }
+
+        await user.save();
+        await doctor.save();
+
+        return res.status(200).json({
+            message: "Doctor profile updated successfully",
+            doctor: {
+                ...doctor.toObject(),
+                userId: {
+                    name: user.name,
+                    email: user.email
+                }
+            }
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+module.exports = {createDoctorProfile,getDoctorProfile,updateDoctorAvailability,getAllDoctors,getDoctorById,updateDoctorProfile}; 

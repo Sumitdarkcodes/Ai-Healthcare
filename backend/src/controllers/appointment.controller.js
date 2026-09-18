@@ -87,6 +87,57 @@ const getDoctorAppointments = async (req, res) => {
     }
 };
 
+const getDoctorAppointmentStats = async (req, res) => {
+    try {
+
+        const doctor = await Doctor.findOne({
+            userId: req.user.userId
+        });
+
+        if (!doctor) {
+            return res.status(404).json({
+                message: "Doctor profile not found"
+            });
+        }
+
+        const appointments = await Appointment.find({
+            doctorId: doctor._id
+        }).select("status");
+
+        const totalAppointments = appointments.length;
+
+        const pendingAppointments = appointments.filter(
+            (appointment) => appointment.status === "PENDING"
+        ).length;
+
+        const confirmedAppointments = appointments.filter(
+            (appointment) => appointment.status === "CONFIRMED"
+        ).length;
+
+        const completedAppointments = appointments.filter(
+            (appointment) => appointment.status === "COMPLETED"
+        ).length;
+
+        return res.status(200).json({
+            message: "Doctor appointment stats fetched successfully",
+            stats: {
+                totalAppointments,
+                pendingAppointments,
+                confirmedAppointments,
+                completedAppointments
+            }
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
 const updateAppointmentStatus = async (req, res) => {
     try {
         const { appointmentId } = req.params;
@@ -189,4 +240,67 @@ const cancelAppointment = async (req, res) => {
     }
 };
 
-module.exports = {createAppointment,getDoctorAppointments,updateAppointmentStatus,cancelAppointment};
+const getMyAppointments = async (req, res) => {
+    try {
+
+        const appointments = await Appointment.find({
+            patientId: req.user.userId
+        })
+        .populate({
+            path: "doctorId",
+            populate: {
+                path: "userId",
+                select: "name email"
+            }
+        })
+        .sort({ appointmentDate: 1 });
+
+        return res.status(200).json({
+            message: "Appointments fetched successfully",
+            appointments
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
+const getConfirmedDoctorAppointments = async (req, res) => {
+    try {
+        const doctor = await Doctor.findOne({
+            userId: req.user.userId
+        });
+
+        if (!doctor) {
+            return res.status(404).json({
+                message: "Doctor profile not found"
+            });
+        }
+
+        const appointments = await Appointment.find({
+            doctorId: doctor._id,
+            status: "CONFIRMED"
+        })
+        .populate("patientId", "name email")
+        .sort({ appointmentDate: 1 });
+
+        return res.status(200).json({
+            message: "Confirmed appointments fetched successfully",
+            appointments
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
+module.exports = {createAppointment,getDoctorAppointments,updateAppointmentStatus,cancelAppointment,getMyAppointments,getDoctorAppointmentStats,getConfirmedDoctorAppointments};

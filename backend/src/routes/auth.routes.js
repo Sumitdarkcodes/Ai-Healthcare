@@ -2,7 +2,7 @@ const express = require ("express");
 
 const router = express.Router();
 
-const {registerUser,loginUser,getProfile,registerAdmin} = require("../controllers/auth.controler");
+const {registerUser,loginUser,getProfile,registerAdmin,logoutUser} = require("../controllers/auth.controller");
 
 const authMiddleware = require("../middleware/auth.middleware");
 
@@ -36,6 +36,7 @@ router.get("/doctor-dashboard",authMiddleware,roleMiddleware (["doctor"]),
     }
 );
 
+router.post("/logout", logoutUser);
 
 module.exports = router;
 

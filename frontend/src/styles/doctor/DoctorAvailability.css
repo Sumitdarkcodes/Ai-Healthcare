@@ -1,0 +1,257 @@
+
+/* =========================
+   DOCTOR AVAILABILITY
+========================= */
+
+.availabilityLayout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.availabilityFormCard,
+.availabilityListCard {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #e4e9e5;
+    border-radius: 20px;
+}
+
+.availabilityHeader,
+.availabilityListHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid #edf0ed;
+}
+
+.availabilityIcon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    background: #e5f4ed;
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+.availabilityHeader h2,
+.availabilityListHeader h2 {
+    margin: 0 0 6px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.availabilityHeader p,
+.availabilityListHeader p {
+    margin: 0;
+    color: #647168;
+    font-size: 13px;
+}
+
+.availabilityForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.availabilityFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.availabilityFormGroup label {
+    color: #415048;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.availabilityFormGroup input,
+.availabilityFormGroup select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dce3de;
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #17211b;
+}
+
+.availabilityFormGroup input:focus,
+.availabilityFormGroup select:focus {
+    border-color: #16805a;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 128, 90, 0.1);
+}
+
+.saveAvailabilityButton {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #16805a;
+    color: #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.saveAvailabilityButton:hover {
+    background: #126b4b;
+}
+
+
+/* CURRENT AVAILABILITY */
+
+.availabilityListHeader {
+    justify-content: space-between;
+}
+
+.availabilityCount {
+    padding: 7px 10px;
+
+    background: #e5f4ed;
+    color: #16805a;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.availabilityList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.availabilityItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 15px;
+
+    background: #f5f7f3;
+    border-radius: 12px;
+}
+
+.availabilityDay {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dayIcon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    background: #ffffff;
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+
+.availabilityDay div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.availabilityDay strong {
+    color: #17211b;
+    font-size: 14px;
+}
+
+.availabilityDay span {
+    color: #647168;
+    font-size: 12px;
+}
+
+.deleteAvailabilityButton {
+    padding: 8px 12px;
+
+    border: 1px solid #e7c4c0;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #c0392b;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.deleteAvailabilityButton:hover {
+    background: #fde9e7;
+}
+
+.emptyAvailability {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.emptyAvailability span {
+    font-size: 38px;
+}
+
+.emptyAvailability h3 {
+    margin: 15px 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.emptyAvailability p {
+    margin: 0;
+    color: #647168;
+    font-size: 13px;
+}
+
+
+@media (max-width: 850px) {
+
+    .availabilityLayout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .availabilityFormCard,
+    .availabilityListCard {
+        padding: 22px;
+    }
+
+    .availabilityListHeader {
+        align-items: flex-start;
+    }
+
+    .availabilityItem {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+

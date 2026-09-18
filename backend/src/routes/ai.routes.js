@@ -6,7 +6,7 @@ const roleMiddleware = require("../middleware/role.middleware");
 
 const { symptomCheck } = require("../controllers/ai.controller");
 
-const {summarizeMedicalRecord} = require("../controllers/medicialsummaryreport.controller");
+const {summarizeMedicalRecord} = require("../controllers/medicalsummaryreport.controller");
 
 router.post("/symptom-check",authMiddleware,roleMiddleware(["patient"]),symptomCheck);
 

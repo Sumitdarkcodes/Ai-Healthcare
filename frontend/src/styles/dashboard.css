@@ -1,0 +1,204 @@
+/* =========================
+   DASHBOARD SECTION
+========================= */
+
+.dashboardSection {
+    margin-bottom: 40px;                                 /* space between sections */
+}
+
+.dashboardSection h2 {
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   DASHBOARD STATS GRID
+========================= */
+
+.dashboardStats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));   /* auto-fit any number of cards */
+    gap: 18px;
+}
+
+
+/* =========================
+   STAT CARD
+========================= */
+
+.statCard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.statCard:hover {
+    transform: translateY(-3px);                         /* slight lift on hover */
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   STAT ICON
+========================= */
+
+.statIcon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    background: var(--primary-light);                    /* light green bg */
+    color: var(--primary);                               /* green icon */
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+
+/* =========================
+   STAT TITLE
+========================= */
+
+.statCard h3 {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-family: "DM Sans", sans-serif;                  /* body font (not heading) */
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   STAT NUMBER
+========================= */
+
+.statCard p {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: "Space Grotesk", sans-serif;            /* display font for numbers */
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* =========================
+   QUICK ACTIONS GRID
+========================= */
+
+.quickActions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));   /* auto-fit any number of cards */
+    gap: 18px;
+}
+
+
+/* =========================
+   ACTION CARD
+========================= */
+
+.actionCard {
+    display: block;                                      /* makes <Link> behave like a div */
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.actionCard:hover {
+    transform: translateY(-3px);                         /* slight lift */
+    border-color: var(--primary);                        /* green border */
+    background: #fcfefc;                                 /* very light green bg */
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   ACTION ICON
+========================= */
+
+.actionCard > span {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 17px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+
+/* =========================
+   ACTION TITLE
+========================= */
+
+.actionCard h3 {
+    margin-bottom: 7px;
+    color: var(--text-primary);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   ACTION DESCRIPTION
+========================= */
+
+.actionCard p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   LOADING STATE
+========================= */
+
+.dashboardSection > p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    /* auto-fit handles this now, but keeping as backup */
+    .dashboardStats,
+    .quickActions {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+    .statCard,
+    .actionCard {
+        padding: 18px;                                   /* smaller padding on mobile */
+    }
+
+    .statCard p {
+        font-size: 28px;                                 /* smaller number on mobile */
+    }
+}

@@ -1,0 +1,89 @@
+/* =========================
+   TOP NAVBAR
+========================= */
+
+header {
+    height: 72px;                                        /* fixed height bar */
+    padding: 0 7%;                                       /* side spacing */
+    display: flex;
+    align-items: center;
+    gap: 24px;                                           /* space between brand + links */
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);              /* subtle separator */
+    position: sticky;                                    /* stays on top when scrolling */
+    top: 0;
+    z-index: 10;
+}
+
+
+/* =========================
+   BRAND / LOGO
+========================= */
+
+.brand {
+    font-family: "Space Grotesk", sans-serif;            /* display font */
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-right: auto;                                  /* pushes links to the right */
+    letter-spacing: -0.02em;
+}
+
+.brand span {
+    color: var(--primary);                               /* "Healthcare" in green */
+}
+
+
+/* =========================
+   NAV LINKS WRAPPER
+========================= */
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;                                           /* space between links */
+}
+
+
+/* =========================
+   NAV LINKS
+========================= */
+
+header nav a {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color var(--transition);
+}
+
+header nav a:hover {
+    color: var(--primary);                               /* green on hover */
+}
+
+
+/* =========================
+   NAVBAR GREETING TEXT
+========================= */
+
+header nav span {
+    color: var(--text-muted);                            /* "Hi, Rahul" */
+    font-size: 14px;
+}
+
+
+/* =========================
+   LOGOUT BUTTON (inside navbar)
+========================= */
+
+header nav button {
+    background: var(--primary);                          /* green button */
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+header nav button:hover {
+    background: var(--primary-dark);                     /* darker green on hover */
+}

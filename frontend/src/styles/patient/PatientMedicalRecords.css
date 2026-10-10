@@ -1,0 +1,459 @@
+/* =========================
+   MEDICAL RECORDS PAGE
+========================= */
+
+.recordsSection {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.recordsHeader {
+    display: flex;
+    align-items: flex-end;                               /* count badge at bottom */
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.recordsHeader h2 {
+    margin: 0 0 8px;
+}
+
+.recordsHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+
+/* =========================
+   RECORD COUNT BADGE
+========================= */
+
+.recordCount {
+    padding: 8px 12px;
+    background: var(--primary-light);                    /* light green bg */
+    color: var(--primary);                               /* green text */
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   RECORDS GRID
+========================= */
+
+.recordsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);               /* 3 per row */
+    gap: 20px;
+}
+
+
+/* =========================
+   RECORD CARD
+========================= */
+
+.recordCard {
+    background: var(--surface);
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.recordCard:hover {
+    transform: translateY(-4px);                         /* lift on hover */
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   CARD HEADER - icon + diagnosis
+========================= */
+
+.recordCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.recordIcon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--primary-light);
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.recordCardHeader h3 {
+    margin: 0 0 5px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.recordCardHeader span {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.recordCardHeader small {
+    display: block;                                      /* forces new line */
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+
+/* =========================
+   RECORD INFO (date, diagnosis, prescription)
+========================= */
+
+.recordInfo {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.recordInfo p {
+    display: flex;
+    justify-content: space-between;                      /* label left, value right */
+    gap: 15px;
+    margin: 0 0 13px;
+    font-size: 13px;
+}
+
+.recordInfo p:last-child {
+    margin-bottom: 0;
+}
+
+.recordInfo strong {
+    color: var(--text-secondary);                        /* gray label */
+    font-weight: 500;
+}
+
+.recordInfo span {
+    color: var(--text-primary);                          /* dark value */
+    text-align: right;
+}
+
+
+/* =========================
+   DOCTOR NOTES
+========================= */
+
+.recordNotes {
+    padding: 18px 0;
+}
+
+.recordNotes strong {
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.recordNotes p {
+    margin: 8px 0 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   EXPANDED DETAILS (appears when View Details is clicked)
+========================= */
+
+.recordDetails {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+}
+
+.recordDetails p {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 0 0 10px;
+    font-size: 13px;
+}
+
+.recordDetails p:last-child {
+    margin-bottom: 0;
+}
+
+.recordDetails strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.recordDetails span {
+    color: var(--text-primary);
+    text-align: right;
+}
+
+
+/* =========================
+   ACTION BUTTONS (View Details + AI Summary)
+========================= */
+
+.recordActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;                      /* 2 equal buttons */
+    gap: 9px;
+    margin-top: 14px;
+}
+
+.viewRecordButton {
+    padding: 11px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.viewRecordButton:hover {
+    background: var(--surface-soft);                     /* light gray on hover */
+    border-color: var(--border-dark);
+}
+
+
+/* =========================
+   AI SUMMARY BUTTON (green)
+========================= */
+
+.aiSummaryButton {
+    padding: 11px;
+    border: 1px solid var(--primary);
+    border-radius: 9px;
+    background: var(--primary);                          /* solid green */
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.aiSummaryButton:hover:not(:disabled) {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);                         /* lift on hover */
+}
+
+.aiSummaryButton:disabled {
+    opacity: 0.6;                                        /* faded during generation */
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   AI SUMMARY PANEL
+========================= */
+
+.aiSummarySection {
+    margin-top: 30px;
+}
+
+.aiSummaryCard {
+    background: var(--surface);
+    padding: 30px;
+    border: 2px solid var(--primary-light);              /* subtle green border */
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);                        /* elevated look */
+}
+
+
+/* =========================
+   AI PANEL HEADER
+========================= */
+
+.aiSummaryHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.aiSummaryHeader h2 {
+    margin: 0 0 4px;
+}
+
+.aiSummaryHeader p {
+    margin: 0;
+    font-size: 13px;
+}
+
+
+/* =========================
+   CLOSE BUTTON (✕)
+========================= */
+
+.closeSummaryButton {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+    flex-shrink: 0;                                      /* don't squish */
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.closeSummaryButton:hover {
+    background: var(--danger-light);                     /* light red on hover */
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+
+/* =========================
+   RECORD BEING SUMMARIZED
+========================= */
+
+.aiSummaryRecordInfo {
+    padding: 12px 16px;
+    background: var(--surface-soft);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.aiSummaryRecordInfo strong {
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.aiSummaryRecordInfo span {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+
+/* =========================
+   AI LOADING STATE
+========================= */
+
+.aiSummaryLoading {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.aiSummaryLoading span {
+    font-size: 36px;
+    display: block;                                      /* stack above text */
+    margin-bottom: 12px;
+    animation: pulse 1.5s infinite;                      /* gentle animation */
+}
+
+.aiSummaryLoading p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* gentle pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================
+   AI SUMMARY TEXT
+========================= */
+
+.aiSummaryContent {
+    padding: 20px 0;
+}
+
+.aiSummaryContent p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: pre-wrap;                               /* keeps AI line breaks */
+}
+
+
+/* =========================
+   DISCLAIMER (bottom of AI panel)
+========================= */
+
+.symptomDisclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    background: var(--info-light);                       /* light blue bg */
+    border-radius: 10px;
+}
+
+.symptomDisclaimer span {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.symptomDisclaimer p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+    .recordsGrid {
+        grid-template-columns: repeat(2, 1fr);           /* 2 per row on tablet */
+    }
+}
+
+@media (max-width: 650px) {
+    .recordsHeader {
+        align-items: flex-start;
+        flex-direction: column;                          /* stack title above count */
+    }
+
+    .recordsGrid {
+        grid-template-columns: 1fr;                      /* single column */
+    }
+
+    .recordActions {
+        grid-template-columns: 1fr;                      /* buttons stack */
+    }
+}

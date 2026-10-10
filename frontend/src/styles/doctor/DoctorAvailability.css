@@ -1,0 +1,303 @@
+/* =========================
+   DOCTOR AVAILABILITY PAGE
+========================= */
+
+.availabilityLayout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;                  /* left smaller, right wider */
+    gap: 25px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.availabilityFormCard,
+.availabilityListCard {
+    background: var(--surface);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+
+/* =========================
+   CARD HEADERS
+========================= */
+
+.availabilityHeader,
+.availabilityListHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.availabilityIcon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--primary-light);
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.availabilityHeader h2,
+.availabilityListHeader h2 {
+    margin: 0 0 6px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.availabilityHeader p,
+.availabilityListHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   LOADING STATE
+========================= */
+
+.availabilityLoading {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+
+/* =========================
+   LEFT CARD - STATUS + TOGGLE
+========================= */
+
+.availabilityStatusContent {
+    display: flex;
+    flex-direction: column;                              /* status row, then button */
+    gap: 25px;
+}
+
+.availabilityStatus {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    background: var(--surface-soft);
+    border-radius: 12px;
+}
+
+
+/* =========================
+   STATUS DOT (green or red circle)
+========================= */
+
+.availabilityStatusDot {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;                                      /* keeps circle round */
+    border-radius: 50%;
+}
+
+.availabilityStatusDot.available {
+    background: var(--success);                          /* green */
+    box-shadow: 0 0 0 4px var(--success-light);          /* soft green glow */
+}
+
+.availabilityStatusDot.unavailable {
+    background: var(--danger);                           /* red */
+    box-shadow: 0 0 0 4px var(--danger-light);           /* soft red glow */
+}
+
+
+/* status text next to the dot */
+.availabilityStatus strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.availabilityStatus span {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   TOGGLE BUTTON (Set Available / Set Unavailable)
+========================= */
+
+.availabilityToggleButton {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+/* shown when currently available — clicking makes you unavailable */
+.availabilityToggleButton.unavailableButton {
+    background: var(--danger);                           /* red */
+}
+
+.availabilityToggleButton.unavailableButton:hover:not(:disabled) {
+    background: #a83b3b;                                 /* darker red */
+    transform: translateY(-1px);
+}
+
+/* shown when currently unavailable — clicking makes you available */
+.availabilityToggleButton.availableButton {
+    background: var(--primary);                          /* colored */
+}
+
+.availabilityToggleButton.availableButton:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.availabilityToggleButton:disabled {
+    opacity: 0.6;                                        /* faded while saving */
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   RIGHT CARD - STATUS BADGE (top right)
+========================= */
+
+.availabilityListHeader {
+    justify-content: space-between;                      /* pushes badge to right */
+}
+
+.availabilityCount {
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.availabilityCount.availableCount {
+    background: var(--success-light);                    /* light green bg */
+    color: var(--success);
+}
+
+.availabilityCount.unavailableCount {
+    background: var(--danger-light);                     /* light red bg */
+    color: var(--danger);
+}
+
+
+/* =========================
+   RIGHT CARD - INFO ROW
+========================= */
+
+.availabilityList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.availabilityItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    background: var(--surface-soft);
+    border-radius: 12px;
+}
+
+.availabilityDay {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dayIcon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: var(--surface);
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.availabilityDay div:last-child {
+    display: flex;
+    flex-direction: column;                              /* title above description */
+    gap: 4px;
+}
+
+.availabilityDay strong {
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.availabilityDay span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+
+/* =========================
+   RIGHT-SIDE STATUS TEXT (AVAILABLE / UNAVAILABLE)
+========================= */
+
+.availabilityItemStatus {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;                              /* slight spacing on caps */
+}
+
+.availabilityItemStatus.availableText {
+    color: var(--success);                               /* green */
+}
+
+.availabilityItemStatus.unavailableText {
+    color: var(--danger);                                /* red */
+}
+
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+
+@media (max-width: 850px) {
+    .availabilityLayout {
+        grid-template-columns: 1fr;                      /* stack cards */
+    }
+}
+
+
+/* =========================
+   RESPONSIVE - PHONE
+========================= */
+
+@media (max-width: 550px) {
+    .availabilityFormCard,
+    .availabilityListCard {
+        padding: 22px;                                   /* smaller padding */
+    }
+
+    .availabilityListHeader {
+        align-items: flex-start;                         /* align top when wrapped */
+    }
+
+    .availabilityItem {
+        align-items: flex-start;
+        flex-direction: column;                          /* stack row contents */
+    }
+}

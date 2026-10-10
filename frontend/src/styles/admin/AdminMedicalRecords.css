@@ -1,0 +1,185 @@
+/* =========================
+   ADMIN MEDICAL RECORDS PAGE
+========================= */
+
+.adminRecordsSection {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   SECTION HEADER (title + count)
+========================= */
+
+.adminRecordsHeader {
+    display: flex;
+    align-items: flex-end;                               /* count badge at bottom */
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.adminRecordsHeader h2 {
+    margin: 0 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.adminRecordsHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.adminRecordCount {
+    padding: 7px 10px;
+    background: var(--primary-light);                    /* role-colored bg */
+    color: var(--primary);                               /* role-colored text */
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;                                 /* "3 Records" stays on one line */
+}
+
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.adminFilters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.adminFilters input {
+    flex: 1;                                             /* search takes remaining space */
+    min-width: 220px;
+    padding: 11px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+}
+
+.adminFilters input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);       /* soft glow */
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.adminTableWrapper {
+    width: 100%;
+    overflow-x: auto;                                    /* horizontal scroll */
+}
+
+.adminTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;                                    /* forces scroll before squeezing */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;                                    /* rounds table corners */
+}
+
+.adminTable th {
+    padding: 15px 20px;
+    background: var(--surface-soft);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.adminTable td {
+    padding: 18px 20px;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+
+/* =========================
+   VIEW / HIDE BUTTON
+========================= */
+
+.viewRecordButton {
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+.viewRecordButton:hover {
+    background: var(--primary-light);                    /* light role color */
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+
+/* =========================
+   EXPANDED DETAILS ROW (View clicked)
+========================= */
+
+.expandedRecordRow td {
+    background: var(--surface-soft);                     /* light gray bg */
+    padding: 20px 20px;
+}
+
+.recordDetailsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);               /* 4 columns */
+    gap: 20px;
+}
+
+.recordDetailsGrid > div {
+    display: flex;
+    flex-direction: column;                              /* label above value */
+    gap: 5px;
+}
+
+.recordDetailsGrid strong {
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;                           /* small caps look */
+    letter-spacing: 0.05em;
+}
+
+.recordDetailsGrid p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+    .adminRecordsHeader {
+        align-items: flex-start;
+        flex-direction: column;                          /* stack title above count */
+    }
+
+    .recordDetailsGrid {
+        grid-template-columns: 1fr;                      /* single column on phone */
+    }
+}

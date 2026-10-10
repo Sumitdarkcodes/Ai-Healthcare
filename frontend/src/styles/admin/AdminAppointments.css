@@ -1,0 +1,274 @@
+/* =========================
+   ADMIN APPOINTMENTS PAGE
+========================= */
+
+.adminAppointmentsSection {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   SUMMARY CARDS (4 counts)
+========================= */
+
+.adminAppointmentSummary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);               /* 4 in a row */
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.adminAppointmentSummary > div {
+    display: flex;
+    flex-direction: column;                              /* label above number */
+    gap: 8px;
+    background: var(--surface);
+    padding: 22px 25px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.adminAppointmentSummary span {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.adminAppointmentSummary strong {
+    color: var(--primary);                               /* role-colored number */
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.adminAppointmentsCard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;                                    /* rounds table corners */
+}
+
+.adminAppointmentsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.adminAppointmentsHeader h2 {
+    margin: 0 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.adminAppointmentsHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.adminAppointmentCount {
+    padding: 7px 10px;
+    background: var(--primary-light);                    /* role-colored bg */
+    color: var(--primary);                               /* role-colored text */
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   TABLE WRAPPER
+========================= */
+
+.adminAppointmentTableWrapper {
+    width: 100%;
+    overflow-x: auto;                                    /* scroll on small screens */
+}
+
+.adminAppointmentTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;                                   /* forces scroll before squeezing */
+}
+
+.adminAppointmentTable th {
+    padding: 15px 20px;
+    background: var(--surface-soft);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.adminAppointmentTable td {
+    padding: 18px 20px;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+
+/* =========================
+   PATIENT CELL (avatar + name)
+========================= */
+
+.adminPatientCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.adminPatientAvatar {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;                                      /* keeps circle round */
+    background: var(--primary-light);
+    color: var(--primary);                               /* colored letter */
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.adminPatientCell strong {
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+
+/* =========================
+   DOCTOR NAME CELL
+========================= */
+
+.adminDoctorName {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   DATE & TIME CELL
+========================= */
+
+.adminDateTimeCell {
+    display: flex;
+    flex-direction: column;                              /* date above time */
+    gap: 5px;
+}
+
+.adminDateTimeCell strong {
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.adminDateTimeCell span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+
+/* =========================
+   REASON CELL
+========================= */
+
+.adminReasonCell {
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   STATUS BADGE (all 5 states)
+========================= */
+
+.adminAppointmentStatus {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* amber for waiting */
+.adminAppointmentStatus.pending {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+/* blue for confirmed */
+.adminAppointmentStatus.confirmed {
+    background: var(--info-light);
+    color: var(--info);
+}
+
+/* red for cancelled or rejected */
+.adminAppointmentStatus.cancelled,
+.adminAppointmentStatus.rejected {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+/* green for completed */
+.adminAppointmentStatus.completed {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.adminEmptyAppointments {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.adminEmptyAppointments span {
+    font-size: 40px;                                     /* calendar emoji */
+}
+
+.adminEmptyAppointments h3 {
+    margin: 15px 0 8px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.adminEmptyAppointments p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+
+@media (max-width: 850px) {
+    .adminAppointmentSummary {
+        grid-template-columns: repeat(2, 1fr);           /* 2x2 grid */
+    }
+}
+
+
+/* =========================
+   RESPONSIVE - PHONE
+========================= */
+
+@media (max-width: 550px) {
+    .adminAppointmentSummary {
+        grid-template-columns: 1fr;                      /* stack all 4 */
+    }
+
+    .adminAppointmentsHeader {
+        align-items: flex-start;
+        flex-direction: column;                          /* stack title above count */
+        padding: 22px;
+    }
+}

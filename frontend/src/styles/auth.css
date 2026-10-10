@@ -1,0 +1,158 @@
+/* =========================
+   AUTH PAGE (login + register)
+========================= */
+
+.authPage {
+    min-height: calc(100vh - 72px);                      /* fills screen minus navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;                             /* centers the card */
+    padding: 50px 20px;
+    background: var(--background);
+}
+
+
+/* =========================
+   AUTH CARD
+========================= */
+
+.authCard {
+    width: 100%;
+    max-width: 440px;                                    /* keeps form narrow */
+    background: var(--surface);
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================
+   AUTH HEADER (icon + title)
+========================= */
+
+.authHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.authIcon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;                                 /* centers horizontally */
+    display: grid;
+    place-items: center;                                 /* centers the heart */
+    background: var(--primary-light);
+    color: var(--primary);                               /* green heart */
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.authHeader h1 {
+    font-family: "Space Grotesk", sans-serif;            /* display font */
+    font-size: 32px;
+    margin: 0 0 8px;
+    color: var(--text-primary);
+}
+
+.authHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+
+/* =========================
+   AUTH FORM
+========================= */
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;                                           /* space between fields */
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                                            /* space between label + input */
+}
+
+.formGroup label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.formGroup input,
+.formGroup select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    color: var(--text-primary);
+    background: var(--surface);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    border-color: var(--primary);                        /* green border on focus */
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);       /* green glow */
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.authButton {
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--primary);                          /* green */
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.authButton:hover:not(:disabled) {
+    background: var(--primary-dark);                     /* darker green on hover */
+    transform: translateY(-1px);                         /* slight lift */
+}
+
+.authButton:disabled {
+    opacity: 0.6;                                        /* faded when loading */
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   AUTH FOOTER (login/register link)
+========================= */
+
+.authFooter {
+    text-align: center;
+    margin: 25px 0 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.authFooter a {
+    color: var(--primary);                               /* green link */
+    font-weight: 600;
+}
+
+.authFooter a:hover {
+    text-decoration: underline;                          /* underline on hover */
+}
+
+
+/* =========================
+   ERROR MESSAGE INSIDE CARD
+========================= */
+
+.authCard .error {
+    margin-bottom: 0;                                    /* no extra gap, form has gap */
+}

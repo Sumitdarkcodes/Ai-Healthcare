@@ -1,0 +1,204 @@
+/* =========================
+   APPOINTMENTS PAGE
+========================= */
+
+.appointmentSection {
+    margin-top: 10px;
+}
+
+.appointmentSection h2 {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   APPOINTMENT GRID
+========================= */
+
+.appointmentGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);               /* 2 cards per row */
+    gap: 20px;
+}
+
+
+/* =========================
+   APPOINTMENT CARD
+========================= */
+
+.appointmentCard {
+    background: var(--surface);
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.appointmentCard:hover {
+    transform: translateY(-3px);                         /* lift on hover */
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   CARD HEADER - doctor avatar + name
+========================= */
+
+.appointmentHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.appointmentHeader h3 {
+    margin: 0 0 5px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.appointmentHeader span {
+    color: var(--text-secondary);                        /* "Doctor Consultation" text */
+    font-size: 13px;
+}
+
+
+/* =========================
+   APPOINTMENT INFO (date, time, reason)
+========================= */
+
+.appointmentInfo {
+    padding: 20px 0;
+}
+
+.appointmentInfo p {
+    display: flex;
+    justify-content: space-between;                      /* label left, value right */
+    gap: 20px;
+    margin: 0 0 14px;
+    font-size: 14px;
+}
+
+.appointmentInfo p:last-child {
+    margin-bottom: 0;                                    /* no gap after last row */
+}
+
+.appointmentInfo strong {
+    color: var(--text-secondary);                        /* gray label */
+    font-weight: 500;
+}
+
+.appointmentInfo span {
+    color: var(--text-primary);                          /* dark value */
+    text-align: right;
+}
+
+
+/* =========================
+   CARD FOOTER - status + cancel button
+========================= */
+
+.appointmentFooter {
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.appointmentStatus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);                        /* default gray */
+}
+
+/* amber for waiting */
+.appointmentStatus.pending {
+    color: var(--warning);
+}
+
+/* blue for confirmed */
+.appointmentStatus.confirmed {
+    color: var(--info);
+}
+
+/* green for completed */
+.appointmentStatus.completed {
+    color: var(--success);
+}
+
+/* red for cancelled or rejected */
+.appointmentStatus.cancelled,
+.appointmentStatus.rejected {
+    color: var(--danger);
+}
+
+
+/* =========================
+   CANCEL APPOINTMENT BUTTON
+========================= */
+
+.cancelAppointmentButton {
+    padding: 8px 14px;
+    border: 1px solid var(--danger);                     /* red border */
+    border-radius: var(--radius-md);
+    background: transparent;                             /* hollow button */
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: 600;
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.cancelAppointmentButton:hover {
+    background: var(--danger);                           /* filled red on hover */
+    color: #ffffff;
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.emptyAppointment {
+    background: var(--surface);
+    padding: 60px 30px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    text-align: center;
+}
+
+.emptyAppointment span {
+    font-size: 40px;                                     /* calendar emoji */
+}
+
+.emptyAppointment h3 {
+    font-family: "Space Grotesk", sans-serif;
+    margin: 15px 0 8px;
+}
+
+.emptyAppointment p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+    .appointmentGrid {
+        grid-template-columns: 1fr;                      /* single column */
+    }
+}

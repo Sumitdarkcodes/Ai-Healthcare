@@ -1,0 +1,366 @@
+/* =========================
+   DOCTOR MEDICAL RECORDS PAGE
+========================= */
+
+.medicalRecordsLayout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;                /* left form smaller, right list wider */
+    gap: 25px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.createRecordCard,
+.doctorRecordsCard {
+    background: var(--surface);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+
+/* =========================
+   CARD HEADERS
+========================= */
+
+.medicalRecordsHeader,
+.doctorRecordsHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.medicalRecordsIcon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--primary-light);
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.medicalRecordsHeader h2,
+.doctorRecordsHeader h2 {
+    margin: 0 0 6px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.medicalRecordsHeader p,
+.doctorRecordsHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   RECORD FORM (left card)
+========================= */
+
+.medicalRecordForm {
+    display: flex;
+    flex-direction: column;                              /* stack fields vertically */
+    gap: 18px;
+}
+
+.medicalRecordFormGroup {
+    display: flex;
+    flex-direction: column;                              /* label above input */
+    gap: 8px;
+}
+
+.medicalRecordFormGroup label {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.medicalRecordFormGroup input,
+.medicalRecordFormGroup textarea,
+.medicalRecordFormGroup select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.medicalRecordFormGroup textarea {
+    resize: vertical;
+}
+
+.medicalRecordFormGroup input:focus,
+.medicalRecordFormGroup textarea:focus,
+.medicalRecordFormGroup select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);       /* soft glow on focus */
+}
+
+/* faded read-only input (patient name auto-filled) */
+.medicalRecordFormGroup input:read-only {
+    background: var(--surface-soft);                     /* light gray bg */
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* small hint text below the dropdown */
+.medicalRecordFormGroup small {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+/* =========================
+   CREATE RECORD BUTTON
+========================= */
+
+.createRecordButton {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.createRecordButton:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+.createRecordButton:disabled {
+    opacity: 0.6;                                        /* faded while creating */
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   RECORDS CARD HEADER (with count)
+========================= */
+
+.doctorRecordsHeader {
+    justify-content: space-between;                      /* count badge to right */
+}
+
+.doctorRecordCount {
+    padding: 7px 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;                                 /* don't wrap "3 Records" */
+}
+
+
+/* =========================
+   RECORDS LIST (right card)
+========================= */
+
+.doctorRecordsList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.doctorRecordItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px;
+    background: var(--surface-soft);
+    border-radius: 12px;
+}
+
+.doctorRecordMain {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;                                        /* allows text to shrink */
+}
+
+.doctorRecordIcon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;                                      /* keeps square */
+    background: var(--surface);
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.doctorRecordInfo {
+    min-width: 0;                                        /* prevents overflow */
+}
+
+.doctorRecordInfo h3 {
+    margin: 0 0 5px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+}
+
+.recordPatient {
+    margin: 0 0 4px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recordDate {
+    margin: 0 0 8px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.recordNotesPreview {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   EXPANDED DETAILS (View clicked)
+========================= */
+
+.doctorRecordDetails {
+    padding: 16px 0 4px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);               /* 3 columns */
+    gap: 16px;
+}
+
+.doctorRecordDetails p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;                              /* label above value */
+    gap: 4px;
+}
+
+.doctorRecordDetails strong {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.doctorRecordDetails span {
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   ACTION BUTTONS (View / Hide)
+========================= */
+
+.doctorRecordActions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;                                      /* don't squish buttons */
+}
+
+.doctorRecordActions button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+.viewDoctorRecordButton {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+.viewDoctorRecordButton:hover {
+    border-color: var(--primary);
+    color: var(--primary);                               /* green text on hover */
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.doctorEmptyRecords {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.doctorEmptyRecords span {
+    font-size: 38px;
+}
+
+.doctorEmptyRecords h3 {
+    margin: 15px 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.doctorEmptyRecords p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+
+@media (max-width: 900px) {
+    .medicalRecordsLayout {
+        grid-template-columns: 1fr;                      /* stack cards */
+    }
+}
+
+
+/* =========================
+   RESPONSIVE - PHONE
+========================= */
+
+@media (max-width: 600px) {
+    .createRecordCard,
+    .doctorRecordsCard {
+        padding: 22px;                                   /* smaller padding */
+    }
+
+    .doctorRecordItem {
+        align-items: flex-start;
+        flex-direction: column;                          /* stack main + actions */
+    }
+
+    .doctorRecordActions {
+        width: 100%;
+    }
+
+    .doctorRecordActions button {
+        flex: 1;                                         /* buttons share width */
+    }
+
+    .doctorRecordDetails {
+        grid-template-columns: 1fr;                      /* single column on phone */
+    }
+}

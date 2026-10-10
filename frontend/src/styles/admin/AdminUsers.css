@@ -1,0 +1,141 @@
+/* =========================
+   ADMIN USERS PAGE
+========================= */
+
+.adminUsersSection {
+    margin-top: 10px;
+}
+
+
+/* =========================
+   FILTER BAR (search + role dropdown)
+========================= */
+
+.adminFilters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;                                     /* wrap on small screens */
+}
+
+.adminFilters input {
+    flex: 1;                                             /* search takes remaining space */
+    min-width: 220px;                                    /* but at least this wide */
+    padding: 11px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+}
+
+.adminFilters input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);       /* soft glow */
+}
+
+.adminFilters select {
+    width: 180px;
+    padding: 11px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.adminFilters select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);
+}
+
+
+/* =========================
+   USERS TABLE
+========================= */
+
+.adminTableWrapper {
+    width: 100%;
+    overflow-x: auto;                                    /* horizontal scroll on small screens */
+}
+
+.adminTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;                                    /* forces scroll before squeezing */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;                                    /* rounds table corners */
+}
+
+.adminTable th {
+    padding: 15px 20px;
+    background: var(--surface-soft);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;                                 /* prevents header wrap */
+}
+
+.adminTable td {
+    padding: 18px 20px;
+    border-top: 1px solid var(--border);
+    vertical-align: middle;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+
+/* =========================
+   ROLE BADGE
+========================= */
+
+.roleBadge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;                          /* "patient" → "Patient" */
+}
+
+/* patient badge - green */
+.roleBadge.patient {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+/* doctor badge - blue */
+.roleBadge.doctor {
+    background: var(--info-light);
+    color: var(--info);
+}
+
+/* admin badge - purple */
+.roleBadge.admin {
+    background: #f1eafa;
+    color: #7652a8;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+    .adminFilters {
+        flex-direction: column;                          /* stack search above dropdown */
+    }
+
+    .adminFilters input,
+    .adminFilters select {
+        width: 100%;                                     /* full width */
+    }
+}
+
+@media (max-width: 550px) {
+    .adminFilters {
+        gap: 8px;
+    }
+}

@@ -1,0 +1,234 @@
+/* =========================
+   PATIENT PROFILE PAGE
+========================= */
+
+.profileCard,
+.profileEditCard {
+    max-width: 800px;                                    /* keeps form narrow */
+    background: var(--surface);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+
+/* =========================
+   PROFILE HEADER (avatar + name)
+========================= */
+
+.profileTop {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profileAvatar {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;                                 /* centers the letter */
+    border-radius: 50%;                                  /* circle */
+    background: var(--primary-light);
+    color: var(--primary);                               /* green letter */
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.profileTop h2 {
+    margin: 0 0 5px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.profileTop p {
+    margin: 0;
+    color: var(--text-secondary);                        /* "Patient" tagline */
+}
+
+
+/* =========================
+   PROFILE DETAILS GRID (read-only view)
+========================= */
+
+.profileDetails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);               /* 2 columns */
+    gap: 20px;
+}
+
+.profileItem {
+    display: flex;
+    flex-direction: column;                              /* label above value */
+    gap: 6px;
+    padding: 15px;
+    background: var(--surface-soft);                     /* subtle gray bg */
+    border-radius: 10px;
+}
+
+.profileItem span {
+    color: var(--text-secondary);                        /* gray label */
+    font-size: 12px;
+}
+
+.profileItem strong {
+    color: var(--text-primary);                          /* dark value */
+    font-size: 14px;
+}
+
+
+/* =========================
+   EDIT PROFILE BUTTON
+========================= */
+
+.editProfileButton {
+    margin-top: 25px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);                          /* green */
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.editProfileButton:hover {
+    background: var(--primary-dark);                     /* darker on hover */
+}
+
+
+/* =========================
+   EDIT FORM HEADER
+========================= */
+
+.profileEditHeader {
+    margin-bottom: 25px;
+}
+
+.profileEditHeader h2 {
+    margin: 0 0 7px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.profileEditHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+
+/* =========================
+   PROFILE FORM (edit mode)
+========================= */
+
+.profileForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);               /* 2 fields per row */
+    gap: 20px;
+}
+
+.profileFormGroup {
+    display: flex;
+    flex-direction: column;                              /* label above input */
+    gap: 8px;
+}
+
+.profileFormGroup label {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.profileFormGroup input,
+.profileFormGroup select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+.profileFormGroup input:focus,
+.profileFormGroup select:focus {
+    border-color: var(--primary);                        /* green border on focus */
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);       /* soft green glow */
+}
+
+/* faded disabled inputs (used for name + email) */
+.profileFormGroup input:disabled {
+    background: var(--surface-soft);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   SAVE + CANCEL BUTTONS ROW
+========================= */
+
+.profileActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.saveProfileButton,
+.cancelProfileButton {
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+/* solid green save button */
+.saveProfileButton {
+    border: none;
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.saveProfileButton:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+/* hollow cancel button */
+.cancelProfileButton {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+.cancelProfileButton:hover:not(:disabled) {
+    background: var(--surface-soft);
+}
+
+/* faded when disabled (saving in progress) */
+.saveProfileButton:disabled,
+.cancelProfileButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+    .profileDetails,
+    .profileForm {
+        grid-template-columns: 1fr;                      /* single column */
+    }
+
+    .profileCard,
+    .profileEditCard {
+        padding: 22px;                                   /* smaller padding on phone */
+    }
+}

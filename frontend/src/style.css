@@ -1,0 +1,39 @@
+/* GLOBAL */
+@import "./styles/global.css";
+
+/* NAVBAR */
+@import "./styles/navbar.css";
+
+/* COMMON DASHBOARD */
+@import "./styles/dashboard.css";
+
+/* HOME PAGE */
+@import "./styles/homepage.css";
+
+/* AUTH */
+@import "./styles/auth.css";
+
+/* PATIENT */
+
+@import "./styles/patient/PatientDashboard.css";
+@import "./styles/patient/PatientAppointment.css";
+@import "./styles/patient/PatientMedicalRecords.css";
+@import "./styles/patient/PatientAiSymptomChecker.css";
+@import "./styles/patient/PatientProfile.css";
+@import "./styles/patient/PatientDoctorDetails.css";
+@import "./styles/patient/PatientDoctorPage.css";
+
+/* DOCTOR */
+
+@import "./styles/doctor/DoctorDashboard.css";
+@import "./styles/doctor/DoctorAppointments.css";
+@import "./styles/doctor/DoctorProfile.css";
+@import "./styles/doctor/DoctorAvailability.css";
+@import "./styles/doctor/DoctorMedicalRecords.css";
+
+/* ADMIN */
+
+@import "./styles/admin/AdminDashboard.css";
+@import "./styles/admin/AdminUsers.css";
+@import "./styles/admin/AdminAppointments.css";
+@import "./styles/admin/AdminMedicalRecords.css";

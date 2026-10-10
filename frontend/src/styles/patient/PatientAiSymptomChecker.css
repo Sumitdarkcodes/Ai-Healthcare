@@ -1,0 +1,249 @@
+/* =========================
+   AI SYMPTOM CHECKER PAGE
+========================= */
+
+.symptomSection {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;                  /* form wider than result */
+    gap: 25px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   SHARED CARD STYLE (input + result)
+========================= */
+
+.symptomCard,
+.symptomResult {
+    background: var(--surface);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+
+/* =========================
+   INPUT CARD - icon + heading
+========================= */
+
+.symptomIcon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    background: var(--primary-light);
+    border-radius: 14px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.symptomCard h2 {
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0 0 10px;
+}
+
+.symptomCard > p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   SYMPTOMS TEXTAREA
+========================= */
+
+.symptomCard textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    resize: vertical;
+    outline: none;
+    color: var(--text-primary);
+}
+
+.symptomCard textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.10);       /* soft green glow */
+}
+
+
+/* =========================
+   CHECK SYMPTOMS BUTTON
+========================= */
+
+.checkSymptomsButton {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);                          /* solid green */
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.checkSymptomsButton:hover:not(:disabled) {
+    background: var(--primary-dark);                     /* darker on hover */
+}
+
+.checkSymptomsButton:disabled {
+    opacity: 0.6;                                        /* faded while loading */
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   DISCLAIMER BOX (info message)
+========================= */
+
+.symptomDisclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px;
+    background: var(--info-light);                       /* light blue bg */
+    border-radius: 10px;
+}
+
+.symptomDisclaimer span {
+    font-size: 15px;
+    flex-shrink: 0;                                      /* don't squish icon */
+}
+
+.symptomDisclaimer p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.symptomResult {
+    align-self: start;                                   /* don't stretch to full height */
+}
+
+.resultHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.resultIcon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--primary-light);
+    color: var(--primary);                               /* green icon */
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.resultHeader h2 {
+    margin: 0 0 5px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.resultHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESULT DETAILS (specialty + urgency)
+========================= */
+
+.resultDetails {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.resultItem {
+    display: flex;
+    justify-content: space-between;                      /* label left, value right */
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.resultItem:last-child {
+    margin-bottom: 0;
+}
+
+.resultItem span {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.resultItem strong {
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+
+/* =========================
+   URGENCY COLORS
+   (higher specificity than .resultItem strong — no !important needed)
+========================= */
+
+.resultItem strong.urgencyHigh {
+    color: var(--danger);                                /* red for high urgency */
+}
+
+.resultItem strong.urgencyMedium {
+    color: var(--warning);                               /* amber for medium */
+}
+
+.resultItem strong.urgencyLow {
+    color: var(--success);                               /* green for normal */
+}
+
+
+/* =========================
+   RECOMMENDATION BOX (AI text)
+========================= */
+
+.recommendationBox {
+    margin-top: 20px;
+    padding: 18px;
+    background: var(--surface-soft);                     /* subtle gray bg */
+    border-radius: 12px;
+}
+
+.recommendationBox strong {
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.recommendationBox p {
+    margin: 8px 0 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;                               /* keeps AI line breaks */
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+    .symptomSection {
+        grid-template-columns: 1fr;                      /* stack input above result */
+    }
+}

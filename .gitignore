@@ -5,3 +5,9 @@ node_modules/
 dist/
 **/dist/
 *.log
+# seed script with admin password
+**/scripts/seedAdmin.js
+
+# temp files
+backend/New Text Document.txt
+backend/src/src.zip
